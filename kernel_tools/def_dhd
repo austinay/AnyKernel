@@ -1,0 +1,2 @@
+#!/bin/bash
+cp ~/android/dhd/bm/.config ~/android/dhd/bm/arch/arm/configs/spade_defconfig

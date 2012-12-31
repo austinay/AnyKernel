@@ -1,0 +1,14 @@
+#!/bin/bash
+clear
+now=$(date +"%Y%m%d_%H%M")
+# Remove the old modules and old zImage in Anykernel folder.
+rm ~/android/AnyKernel2/system/lib/modules/bcmdhd.ko
+rm ~/android/AnyKernel2/kernel/zImage
+# Copy the new modules and new zImage to Anykernel folder.
+cp ~/android/dhd/bm/drivers/net/wireless/bcmdhd/bcmdhd.ko ~/android/AnyKernel2/system/lib/modules
+cp ~/android/dhd/bm/arch/arm/boot/zImage ~/android/AnyKernel2/kernel
+# Creat flashable zip file
+cd ~/android/AnyKernel2
+zip -r beastmode-MOD-${now}.zip *
+# Drop it to release folder
+mv ~/android/AnyKernel2/beastmode-MOD-${now}.zip ~/android/releasefolder
