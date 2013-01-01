@@ -1,0 +1,5 @@
+#!/bin/bash
+# This command will copy your kernel config to the defconfig folder.
+# Change "yourkernelname" to what name you like,
+# change "androidosversion" to what android os version that you design kernel for.
+cp ~/android/p500/caf-kernel/.config ~/android/p500/caf-kernel/arch/arm/configs/caf-p500_defconfig

@@ -1,0 +1,14 @@
+#!/bin/bash
+clear
+now=$(date +"%Y%m%d_%H%M")
+# Remove the old modules and old zImage in Anykernel folder.
+rm ~/android/AnyKernel/system/lib/modules/wireless.ko
+rm ~/android/AnyKernel/kernel/zImage
+# Copy the new modules and new zImage to Anykernel folder.
+cp ~/android/p500/caf-kernel/drivers/net/wireless/bcm4325/wireless.ko ~/android/AnyKernel/system/lib/modules
+cp ~/android/p500/caf-kernel/arch/arm/boot/zImage ~/android/AnyKernel/kernel
+# Creat flashable zip file
+cd ~/android/AnyKernel
+zip -r caf-p500-${now}.zip *
+# Drop it to release folder
+mv ~/android/AnyKernel/caf-p500-${now}.zip ~/android/releasefolder
